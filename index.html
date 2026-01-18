@@ -233,7 +233,65 @@
     .social-links a:hover {
         transform: translateY(-5px); 
     }
+    /* =========================================
+       RESPONSIVE DESIGN (MOBILE FIXES)
+       ========================================= */
+    
+    /* 1. Fix Animated Text on Desktop */
+    .animated-info {
+        min-width: 500px;        /* Works great on Laptop */
+        white-space: nowrap;     /* Keeps text on one line */
+    }
 
+    /* 2. OVERRIDES FOR MOBILE DEVICES (Max width 767px) */
+    @media (max-width: 767px) {
+        
+        /* Fix the Headline Text */
+        .animated-info {
+            min-width: auto !important; /* Let it shrink */
+            white-space: normal !important; /* Allow wrapping if needed */
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .animated-item {
+            font-size: 28px !important; /* Smaller font so it fits */
+        }
+
+        .home-text h1 {
+            font-size: 32px; /* Smaller 'Hey folks' text */
+            line-height: 1.2;
+        }
+
+        /* Fix Project Images */
+        .project-image-box {
+            height: 200px; /* Slightly shorter on mobile */
+        }
+
+        /* Center Social Icons & Allow wrapping */
+        .social-links {
+            gap: 15px; /* Smaller gap */
+            flex-wrap: wrap; 
+        }
+        .social-links a {
+            font-size: 35px; /* Slightly smaller icons */
+        }
+
+        /* Fix About Me Section Spacing */
+        .about-details-img {
+            margin-bottom: 40px; /* Space between photo and bio */
+        }
+        
+        /* Center text in About Me on mobile */
+        .about-text {
+            text-align: center;
+        }
+        
+        /* Align the Bio list to the left even if text is centered */
+        .about-list {
+            text-align: left; 
+        }
+    }
 </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
