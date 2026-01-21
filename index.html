@@ -239,6 +239,95 @@
     .animated-info {
         white-space: nowrap;     /* Keeps text on one line */
     }
+    /* =========================================
+       SKILL TAGS (Chips) STYLING
+       ========================================= */
+    .skill-tag {
+        display: inline-block;
+        background: #f8f9fa;       /* Light Grey Background */
+        color: #333;               /* Dark Text */
+        padding: 6px 14px;
+        margin: 0 8px 8px 0;       /* Spacing between tags */
+        border-radius: 20px;       /* Rounded edges (Pill shape) */
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid #e0e0e0;
+        transition: all 0.2s ease;
+    }
+
+    /* Hover Effect */
+    .skill-tag:hover {
+        background: #ffc107;       /* Yellow on Hover */
+        color: #000;
+        border-color: #ffc107;
+        transform: translateY(-2px); /* Slight lift */
+    }
+
+    /* Dark Mode Overrides */
+    body.dark-mode .skill-tag {
+        background: #333;
+        color: #eee;
+        border-color: #444;
+    }
+    body.dark-mode .skill-tag:hover {
+        background: #ffc107;
+        color: #000;
+    }
+    /* =========================================
+       PROJECT IMAGE & OVERLAY BUTTON STYLING
+       ========================================= */
+    /* 1. The Image Container wrapper */
+    .project-image-wrap {
+        position: relative; /* Needed to position the button inside */
+        overflow: hidden;   /* Keeps things rounded and contained */
+        border-radius: 10px;
+        display: block;
+        cursor: default;    
+    }
+
+    /* Image Zoom on Hover (Optional: Keeps the nice zoom effect) */
+    .project-image-wrap img {
+        transition: transform 0.5s ease;
+        width: 100%;
+    }
+    .project-image-wrap:hover img {
+        transform: scale(1.05); 
+    }
+
+    /* 2. The Overlay Button (ALWAYS VISIBLE FIX) */
+    .btn-github-overlay {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        
+        /* Made it always visible: */
+        opacity: 1;           
+        transform: translateY(0); 
+
+        background: rgba(255, 193, 7, 0.9); /* 90% Opaque Yellow */
+        color: #333;
+        padding: 6px 14px;      
+        border-radius: 20px;    
+        font-size: 12px;        
+        font-weight: 700;
+        text-decoration: none;
+        z-index: 10;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+
+    .btn-github-overlay i {
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    /* Button Hover Effect (Lift slightly when you touch the button) */
+    .btn-github-overlay:hover {
+        background: #5a07ff;         /* Solid Yellow */
+        color: #000;
+        transform: translateY(-2px); /* Slight lift */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
 
 </style>
     <meta charset="utf-8">
@@ -349,60 +438,67 @@ https://www.tooplate.com/view/2115-marvel
         </div>
     </section>
 
-    <section class="about-details py-5" id="about-details">
+<section class="about-details py-5" id="about-details">
         <div class="container">
             <div class="row">
                 
                 <div class="col-lg-5 col-md-12 mb-5">
+                    
                     <img src="images/project/about-me-newest.png" class="img-fluid about-details-img" alt="Prashik Manwar">
                     
-                    <div class="skill-box">
-                        <p class="mb-3 h5" style="color: #ffc107; font-weight:700;">Key Skills</p>
+                    <div class="skill-box mt-4">
                         
-                        <span>Python & SQL</span>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="mb-3">
+                            <h6 style="color: #ffc107; font-weight: 700; text-transform: uppercase; font-size: 14px;">Languages & Core</h6>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
                         </div>
 
-                        <span>Machine Learning</span>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="mb-3">
+                            <h6 style="color: #ffc107; font-weight: 700; text-transform: uppercase; font-size: 14px;">AI & Machine Learning</h6>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-tag">LangChain (RAG)</span>
+                                <span class="skill-tag">NLP</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                                <span class="skill-tag">Pandas/NumPy</span>
+                                <span class="skill-tag">Ollama</span>
+                            </div>
                         </div>
 
-                        <span>NLP & Generative AI (RAG)</span>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                        <span>Power BI</span>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="mb-3">
+                            <h6 style="color: #ffc107; font-weight: 700; text-transform: uppercase; font-size: 14px;">Analytics & Tools</h6>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">Git/GitHub</span>
+                                <span class="skill-tag">VS Code</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-7 col-md-12 pl-lg-5">
                     <div class="about-text">
+                        
                         <h2 class="mb-4">About Me</h2>
-                        <p>Third-year B.Tech student in Electronics Engineering at <strong>VJTI, Mumbai</strong> with interests in <strong>Data Analytics, AI/ML, and NLP</strong>. Experienced in building RAG-based systems, data dashboards, and analytics solutions using tools like LangChain, Power BI, and Python, with projects spanning healthcare analytics, sentiment analysis, sales insights and chatbots. Also worked on an IoT-based Light Monitoring System during an internship. Led a finalist team at the national-level Hacksagon 2025 hackathon.</p>
+                        <p>Third-year B.Tech student in Electronics Engineering at VJTI, Mumbai with interests in Data Analytics, AI/ML, and NLP. Experienced in building RAG-based systems, data dashboards, and analytics solutions using tools like LangChain, Power BI, and Python, with projects spanning healthcare analytics, sentiment analysis, sales insights and chatbots. Also worked on an IoT-based Light Monitoring System during an internship. Led a finalist team at the national-level Hacksagon 2025 hackathon.</p>
                         
                         <ul class="about-list">
                             <li><span>Profile:</span> Data Analytics & AI/ML</li>
-                            <li><span>Education:</span> B.Tech Electronics (VJTI)</li>
+                            <li><span>Education:</span> B.Tech Electronics (VJTI'26)</li>
                             <li><span>Languages:</span> English, Hindi, Marathi</li>
-                            <li><span>BI Tools:</span> Power BI</li>
-                            <li><span>Tech Stack:</span> Python, SQL</li>
                             <li><span>Interests:</span> Skating, Cycling, Football, Music</li>
                         </ul>
 
-                        <div class="row mt-4 align-items-center">
+                        <div class="row mt-5 align-items-center">
                             <div class="col-lg-4 col-12 mb-3">
-                                <h3 style="color: #ffc107; font-weight: 700;">5+</h3>
-                                <p>Projects Completed</p>
+                                <h3 style="color: #ffc107; font-weight: 700; margin-bottom: 0;">5+</h3>
+                                <p style="font-size: 14px;">Projects Completed</p>
                             </div>
                             
                             <div class="col-lg-8 col-12">
-                                <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mb-2">
+                                <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mr-2 mb-2">
                                     <i class="uil uil-linkedin"></i> LinkedIn
                                 </a>
                                 
@@ -420,7 +516,7 @@ https://www.tooplate.com/view/2115-marvel
     </section>
 
     <!-- PROJECTS -->
-    <section class="project py-5" id="project">
+<section class="project py-5" id="project">
         <div class="container">
             
             <div class="row justify-content-center mb-5">
@@ -430,25 +526,34 @@ https://www.tooplate.com/view/2115-marvel
             </div>
 
             <div class="row">
+                
                 <div class="col-md-4 mb-4">
                     <div class="blog-entry">
-                        <a href="https://github.com/PrashikManwar123/Multi-Lingual-PDF-Chatbot" target="_blank"class="d-block zoom-effect">
-                            <img src="images/project/chatbot.png" class="img-fluid rounded" alt="Music Store Analysis">
-                        </a>
+                        <div class="project-image-wrap">
+                            <img src="images/project/chatbot.png" class="img-fluid" alt="Chatbot Project">
+                            <a href="https://github.com/PrashikManwar123/Multi-Lingual-PDF-Chatbot" target="_blank" class="btn-github-overlay">
+                                <i class="uil uil-github"></i> View Code
+                            </a>
+                        </div>
+                        
                         <div class="project-text mt-3">
-                            <h3 class="heading"><a href="#">Multi-lingual PDF Chatbot</a></h3>
-                            <p>Built a RAG pipeline to chat with PDF documents entirely locally. Used Ollama, ChromaDB and Tesseract and built a robust Hybrid Text Extraction system handling both standard and scanned PDFs in different languages.</p>
+                            <h3 class="heading">Multi-lingual PDF Chatbot</h3>
+                            <p>Built a RAG pipeline to chat with PDF documents entirely locally. Used Ollama, ChromaDB and Tesseract to handle both standard and scanned PDFs.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <div class="blog-entry">
-                        <a href="" class="d-block zoom-effect">
-                             <img src="images/project/ev.png" class="img-fluid rounded" alt="Diwali Sales">
-                        </a>
+                         <div class="project-image-wrap">
+                             <img src="images/project/ev.png" class="img-fluid" alt="EV Dashboard">
+                             <a href="#" target="_blank" class="btn-github-overlay">
+                                <i class="uil uil-github"></i> View Code
+                            </a>
+                        </div>
+
                         <div class="project-text mt-3">
-                            <h3 class="heading"><a href="#">EV Adoption Trends Dashboard</a></h3>
+                            <h3 class="heading">EV Adoption Trends Dashboard</h3>
                             <p>Built a Power BI dashboard to analyze EV adoption trends worldwide. Handled various KPIs and used drill-down slicers to visualize data by state and year.</p>
                         </div>
                     </div>
@@ -456,41 +561,57 @@ https://www.tooplate.com/view/2115-marvel
 
                 <div class="col-md-4 mb-4">
                     <div class="blog-entry">
-                        <a href="https://github.com/PrashikManwar123/Stock-News-Sentiment-Analysis" target="_blank" class="d-block zoom-effect">
-                             <img src="images/project/sentiment.png" class="img-fluid rounded" alt="Power BI Dashboard">
-                        </a>
-                        <div class="project-text mt-3">
-                            <h3 class="heading"><a href="#">Sentiment Analysis of Stock Market Headlines</a></h3>
-                            <p>Scraped stock headlines from Finviz to visualize daily market sentiment trends for 1/more stock(s). Utilized BeautifulSoup for scraping, NLTK for scoring, and Pandas with Matplotlib for analysis.</p>
+                        <div class="project-image-wrap">
+                             <img src="images/project/health.png" class="img-fluid" alt="Healthcare Analytics">
+                             <a href="https://github.com/rg1464054/PrevaMed-Hackathon" target="_blank" class="btn-github-overlay">
+                                <i class="uil uil-github"></i> View Code
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-4">
-                    <div class="blog-entry">
-                        <a href="https://github.com/rg1464054/PrevaMed-Hackathon" target="_blank" class="d-block zoom-effect">
-                             <img src="images/project/health.png" class="img-fluid rounded" alt="Sales Forecasting">
-                        </a>
                         <div class="project-text mt-3">
-                            <h3 class="heading"><a href="#">Heathcare Analytics Platform - PrevaMed</a></h3>
+                            <h3 class="heading">Heathcare Analytics - PrevaMed</h3>
                             <p>Developed multiple machine learning models to analyze healthcare data and provide insights for decision-making.</p>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row justify-content-center">
+                
+
                 <div class="col-md-4 mb-4">
                     <div class="blog-entry">
-                        <a href="https://github.com/PrashikManwar123/EDA-Telecom-Churn" target="_blank" class="d-block zoom-effect">
-                             <img src="images/project/churn.png" class="img-fluid rounded" alt="Customer Segmentation">
-                        </a>
+                        <div class="project-image-wrap">
+                             <img src="images/project/churn.png" class="img-fluid" alt="Churn Analysis">
+                             <a href="https://github.com/PrashikManwar123/EDA-Telecom-Churn" target="_blank" class="btn-github-overlay">
+                                <i class="uil uil-github"></i> View Code
+                            </a>
+                        </div>
+
                         <div class="project-text mt-3">
-                            <h3 class="heading"><a href="#">Telecom Churn Analysis</a></h3>
+                            <h3 class="heading">Telecom Churn Analysis</h3>
                             <p>Performed EDA on telecom churn data to understand customer behavior and identify key factors influencing churn.</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="blog-entry">
+                        <div class="project-image-wrap">
+                             <img src="images/project/sentiment.png" class="img-fluid" alt="Sentiment Analysis">
+                             <a href="https://github.com/PrashikManwar123/Stock-News-Sentiment-Analysis" target="_blank" class="btn-github-overlay">
+                                <i class="uil uil-github"></i> View Code
+                            </a>
+                        </div>
+
+                        <div class="project-text mt-3">
+                            <h3 class="heading">Sentiment Analysis of Stock Market</h3>
+                            <p>Scraped stock headlines from Finviz to visualize daily market sentiment trends. Utilized BeautifulSoup, NLTK, and Pandas with Matplotlib.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
