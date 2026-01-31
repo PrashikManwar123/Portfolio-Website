@@ -329,6 +329,59 @@
         box-shadow: 0 6px 15px rgba(0,0,0,0.3);
     }
 
+    /* ===== Welcome box (rounded) ===== */
+    .welcome-box {
+        display: inline-block;
+        background: #f4f4f4;
+        color: #333;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    body.dark-mode .welcome-box {
+        background: #1e1e22;
+        color: #fff;
+        box-shadow: none;
+    }
+
+    /* ===== Equalize About buttons ===== */
+    .equal-btn {
+        min-width: 150px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    @media (max-width: 480px) {
+        .equal-btn { min-width: 120px; }
+    }
+
+    /* For narrow mobile screens show buttons side-by-side with equal widths */
+    @media (max-width: 580px) {
+        .custom-btn.equal-btn { display: inline-flex !important; width: 48% !important; justify-content: center; }
+        .custom-btn.equal-btn + .custom-btn.equal-btn { margin-left: 4%; }
+    }
+
+    /* Color mode button (simple) */
+    .color-mode-btn {
+        background: #f0f0f0;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 6px;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        cursor:pointer;
+        transition: background 0.2s, color 0.2s;
+        font-weight:700;
+    }
+    .color-mode-btn:focus { outline: none; box-shadow: 0 0 0 3px rgba(255,193,7,0.15); }
+    .color-mode-btn i { font-size: 16px; color: #333; }
+    .color-mode-btn.active { background: #333; color:#fff; }
+    .color-mode-btn.active i { color: #ffc200; }
+    @media (max-width: 480px) { .color-mode-btn { padding: 6px 8px; font-size: 14px; } }
+
 </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -388,11 +441,12 @@ https://www.tooplate.com/view/2115-marvel
                 </ul>
 
                 <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
+                    <div class="ml-lg-4 d-flex align-items-center">
+                      <!-- Simple color mode button (keeps id for JS compatibility) -->
+                      <button id="colorToggle" class="btn btn-sm color-mode-btn" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode">
                         <i class="uil uil-moon"></i>
-                        
-                      </div>
+                        <span class="sr-only">Toggle dark mode</span>
+                      </button>
                     </div>
                 </ul>
             </div>
@@ -407,7 +461,7 @@ https://www.tooplate.com/view/2115-marvel
                 
                 <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
                     <div class="home-text">
-                        <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
+                        <small class="small-text"><span class="welcome-box">Welcome to my portfolio website!</span></small> 
                         <h1 class="animated animated-text">
                             Hey folks, I'm
                             <div class="animated-info">
@@ -486,9 +540,9 @@ https://www.tooplate.com/view/2115-marvel
                         
                         <ul class="about-list">
                             <li><span>Profile:</span> Data Analytics & AI/ML</li>
-                            <li><span>Education:</span> B.Tech Electronics (VJTI'26)</li>
+                            <li><span>Education:</span> B.Tech Electronics (VJTI UG'26)</li>
                             <li><span>Languages:</span> English, Hindi, Marathi</li>
-                            <li><span>Interests:</span> Skating, Cycling, Football, Music</li>
+                            <li><span>Interests:</span> Skating, Athletics, Cycling, Football, Music</li>
                         </ul>
 
                         <div class="row mt-5 align-items-center">
@@ -498,11 +552,11 @@ https://www.tooplate.com/view/2115-marvel
                             </div>
                             
                             <div class="col-lg-8 col-12">
-                                <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mr-2 mb-2">
+                                <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mr-2 mb-2 equal-btn">
                                     <i class="uil uil-linkedin"></i> LinkedIn
                                 </a>
                                 
-                                <a href="https://github.com/PrashikManwar123" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mb-2">
+                                <a href="https://github.com/PrashikManwar123" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mb-2 equal-btn">
                                     <i class="uil uil-github"></i> GitHub
                                 </a>
                             </div>
