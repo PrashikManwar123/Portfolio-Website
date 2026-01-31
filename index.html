@@ -386,6 +386,22 @@
     .color-mode-btn.active i { color: #ffc200; }
     @media (max-width: 480px) { .color-mode-btn { padding: 6px 8px; font-size: 14px; } }
 
+    /* Ensure mobile navbar (collapsed) adapts to dark mode: text visible and background dark */ 
+    @media (max-width: 767px) {
+      body.dark-mode .navbar-collapse {
+        background: #0c0c0d !important;
+      }
+      body.dark-mode .navbar-collapse .nav-link,
+      body.dark-mode .navbar-collapse .nav-link span {
+        color: rgba(255,255,255,0.9) !important;
+      }
+      body.dark-mode .navbar-collapse .nav-link:hover {
+        color: #ffc200 !important;
+      }
+      /* Make hamburger bars visible in dark-mode */
+      body.dark-mode .navbar-toggler .navbar-toggler-icon { background: #ffffff; }
+    }
+
 </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
