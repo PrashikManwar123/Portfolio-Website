@@ -4,17 +4,18 @@
 
     // COLOR MODE
     function setDarkMode(on) {
+        var $toggles = $('#colorToggle, #colorToggleMobile');
         if (on) {
-            $('#colorToggle').addClass('active').attr('aria-pressed', 'true');
+            $toggles.addClass('active').attr('aria-pressed', 'true');
             $('body').addClass('dark-mode');
         } else {
-            $('#colorToggle').removeClass('active').attr('aria-pressed', 'false');
+            $toggles.removeClass('active').attr('aria-pressed', 'false');
             $('body').removeClass('dark-mode');
         }
     }
 
-    // Click handler for toggle
-    $(document).on('click', '#colorToggle', function(){
+    // Click handler for either toggle (desktop or mobile)
+    $(document).on('click', '#colorToggle, #colorToggleMobile', function(){
         var next = !$('body').hasClass('dark-mode');
         setDarkMode(next);
         try { localStorage.setItem('darkMode', next ? 'on' : 'off'); } catch (e) {}

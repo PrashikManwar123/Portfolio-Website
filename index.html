@@ -363,6 +363,10 @@
         .custom-btn.equal-btn + .custom-btn.equal-btn { margin-left: 4%; }
     }
 
+    /* ABOUT social buttons flex wrapper */
+    .about-social-btns { gap: 10px; }
+    .about-social-btns .equal-btn { flex: 1; display: inline-flex !important; justify-content: center; align-items: center; min-width: 0; }
+
     /* Color mode button (simple) */
     .color-mode-btn {
         background: #f0f0f0;
@@ -418,7 +422,11 @@ https://www.tooplate.com/view/2115-marvel
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Prashik Manwar</a>
-
+            <!-- Mobile-only dark mode toggle beside name -->
+            <button id="colorToggleMobile" class="btn btn-sm color-mode-btn d-inline-flex d-lg-none ml-2" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode">
+              <i class="uil uil-moon"></i>
+              <span class="sr-only">Toggle dark mode</span>
+            </button>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -442,8 +450,8 @@ https://www.tooplate.com/view/2115-marvel
 
                 <ul class="navbar-nav ml-lg-auto">
                     <div class="ml-lg-4 d-flex align-items-center">
-                      <!-- Simple color mode button (keeps id for JS compatibility) -->
-                      <button id="colorToggle" class="btn btn-sm color-mode-btn" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode">
+                      <!-- Desktop-only toggle (hidden on mobile) -->
+                      <button id="colorToggle" class="btn btn-sm color-mode-btn d-none d-lg-inline-flex" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode">
                         <i class="uil uil-moon"></i>
                         <span class="sr-only">Toggle dark mode</span>
                       </button>
@@ -552,13 +560,15 @@ https://www.tooplate.com/view/2115-marvel
                             </div>
                             
                             <div class="col-lg-8 col-12">
-                                <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mr-2 mb-2 equal-btn">
-                                    <i class="uil uil-linkedin"></i> LinkedIn
-                                </a>
-                                
-                                <a href="https://github.com/PrashikManwar123" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mb-2 equal-btn">
-                                    <i class="uil uil-github"></i> GitHub
-                                </a>
+                                <div class="about-social-btns d-flex w-100">
+                                  <a href="https://www.linkedin.com/in/prashik-manwar-ba2143288/" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mr-2 mb-2 equal-btn">
+                                      <i class="uil uil-linkedin"></i> LinkedIn
+                                  </a>
+                                  
+                                  <a href="https://github.com/PrashikManwar123" target="_blank" class="btn custom-btn custom-btn-bg custom-btn-link mb-2 equal-btn">
+                                      <i class="uil uil-github"></i> GitHub
+                                  </a>
+                                </div>
                             </div>
                         </div>
 
