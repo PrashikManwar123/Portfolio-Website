@@ -353,7 +353,7 @@
     @media (max-width: 576px) {
         .welcome-box { transform: translateX(-4px); padding: 5px 12px; font-size: 0.95rem; }
     }
-    
+
     /* ===== Equalize About buttons ===== */
     .equal-btn {
         min-width: 150px;
@@ -409,6 +409,36 @@
       }
       /* Make hamburger bars visible in dark-mode */
       body.dark-mode .navbar-toggler .navbar-toggler-icon { background: #ffffff; }
+    }
+        /* Timeline: mobile alignment fix - ensures the vertical line sits centered with the year circle */
+    @media (max-width: 576px) {
+      .timeline { position: relative; padding-left: 0; }
+      .timeline:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 36px; /* adjust value to fine-tune alignment */
+        width: 2px;
+        background: rgba(0,0,0,0.06);
+      }
+      .timeline-wrapper { position: relative; padding-left: 72px; margin-bottom: 22px; }
+      .timeline-yr {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 72px;
+        text-align: center;
+      }
+      .timeline-yr span {
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 50%;
+      }
+      /* Dark mode line color on mobile */
+      body.dark-mode .timeline:before { background: rgba(255,255,255,0.06); }
     }
 
 </style>
